@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Sai Anand",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "unoA", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "unoB", "top": 0, "left": 520, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcdA", "top": -200, "left": 0, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-lcd1602", "id": "lcdB", "top": -200, "left": 520, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-pushbutton", "id": "cycleA", "top": 260, "left": 20, "attrs": { "color": "blue", "label": "Cycle" } },
+    { "type": "wokwi-pushbutton", "id": "lockA", "top": 260, "left": 140, "attrs": { "color": "green", "label": "Lock" } },
+    { "type": "wokwi-pushbutton", "id": "cycleB", "top": 260, "left": 540, "attrs": { "color": "blue", "label": "Cycle" } },
+    { "type": "wokwi-pushbutton", "id": "lockB", "top": 260, "left": 660, "attrs": { "color": "green", "label": "Lock" } }
+  ],
+  "connections": [
+    [ "unoA:1", "unoB:0", "orange", [] ],
+    [ "unoB:1", "unoA:0", "purple", [] ],
+    [ "unoA:GND.1", "unoB:GND.1", "black", [] ],
+
+    [ "lcdA:GND", "unoA:GND.2", "black", [] ],
+    [ "lcdA:VCC", "unoA:5V", "red", [] ],
+    [ "lcdA:SDA", "unoA:A4", "green", [] ],
+    [ "lcdA:SCL", "unoA:A5", "blue", [] ],
+    [ "lcdB:GND", "unoB:GND.2", "black", [] ],
+    [ "lcdB:VCC", "unoB:5V", "red", [] ],
+    [ "lcdB:SDA", "unoB:A4", "green", [] ],
+    [ "lcdB:SCL", "unoB:A5", "blue", [] ],
+
+    [ "cycleA:1.l", "unoA:2", "blue", [] ],
+    [ "cycleA:2.l", "unoA:GND.3", "black", [] ],
+    [ "lockA:1.l", "unoA:3", "green", [] ],
+    [ "lockA:2.l", "unoA:GND.3", "black", [] ],
+    [ "cycleB:1.l", "unoB:2", "blue", [] ],
+    [ "cycleB:2.l", "unoB:GND.3", "black", [] ],
+    [ "lockB:1.l", "unoB:3", "green", [] ],
+    [ "lockB:2.l", "unoB:GND.3", "black", [] ]
+  ]
+}
